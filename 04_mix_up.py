@@ -14,7 +14,19 @@ Assuma que a e b tem tamanho 2 ou maior.
 
 def mix_up(a, b):
     # +++ SUA SOLUÇÃO +++
-    return
+    # Antes da dica
+    #c = a.replace(a[0:2], b[0:2])
+    #d = b.replace(b[0:2], a[0:2])
+    #return c+' '+d
+
+    # SOLUÇÃO 2
+    #c = [a.replace(a[0:2], b[0:2]), b.replace(b[0:2], a[0:2])]
+    #return ' '.join(c)
+
+    # SOLUCAO 3
+    return ' '.join([a.replace(a[0:2], b[0:2]), b.replace(b[0:2], a[0:2])])
+
+
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
