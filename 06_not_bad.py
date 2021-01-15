@@ -10,8 +10,21 @@ Exemplo: 'The dinner is not that bad!' retorna 'The dinner is good!'
 """
 
 def not_bad(s):
-    # +++ SUA SOLUÇÃO +++
-    return
+    posnot = s.find('not')
+    posbad = s.find('bad')   
+
+    if posbad > posnot:
+        aa = s[:posnot-1]+ ' good'+s.split('bad', 1)[1]
+    else:
+        aa = s
+    
+    return aa
+    
+    ## solução mais elegante 
+   # return s if s.find('not') > s.find('bad') else s[:s.find('not')] + "good" + s.split('bad', 1)[1]
+
+
+
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
