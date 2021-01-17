@@ -12,8 +12,20 @@ antes de combina-las.
 """
 
 def front_x(words):
-    # +++ SUA SOLUÇÃO +++
-    return
+    contain_x  = []
+    not_contain_x = []
+
+    for word in words:
+        if word[0] == "x":
+            contain_x.append(word)
+        else:
+            not_contain_x.append(word)
+
+    contain_x.sort()
+    not_contain_x.sort()
+
+    return contain_x + not_contain_x
+ 
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
