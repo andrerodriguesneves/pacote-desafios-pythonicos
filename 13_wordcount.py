@@ -57,6 +57,53 @@ import sys
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
 
+def open_file(filename):
+    file = open(filename, "r")
+    lista = file.read().lower().split()
+    lista.sort()
+    file.close()
+    return lista
+
+
+def montar_dicionario(filename):
+
+    lista_file = open_file(filename)
+
+    dict_words = {}
+
+    for word in lista_file:
+        if word in dict_words:
+            dict_words[word] = dict_words[word] + 1
+        else:
+            dict_words[word] = 1
+
+    return dict_words
+
+
+def imprimir_resultado(dicionario, por_chave=True, limite=None):
+
+    lista = list(dicionario.items())
+
+    if not por_chave:
+        lista = sorted(dicionario.items(), key=operator.itemgetter(1), reverse=True)
+
+    for key, value in lista[:limite]:
+        print(key, value)
+
+
+def print_words(filename):
+
+    dicionario = montar_dicionario(filename)
+
+    return imprimir_resultado(dicionario, por_chave=True, limite=len(dicionario))
+
+
+def print_top(filename):
+
+    dicionario = montar_dicionario(filename)
+
+    return imprimir_resultado(dicionario, por_chave=False, limite=20)
+
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
 # parêtros do programa.
